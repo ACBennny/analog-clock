@@ -1,0 +1,166 @@
+/*********************************************************************
+ * Styling of the Analog clock
+ * 
+ * @author (Anyanwu Benedict Chuwkwuemeka)
+ * @version 0.01
+*********************************************************************/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bcg-handle) var(--bcg-trpnt);
+}
+
+html:root
+{
+    --bcg-base: #38776d;
+    --bcg-bright: #ffffff;
+    --bcg-handle: #cdcdcdcd;
+    --bcg-shade: #77777777;
+    --bcg-trpnt: #00000000;
+    --bcg-white: #eafff0;
+    --font-clr-heavy: #ffffff;
+    --font-clr-mid: #cccccc;
+    --font-shadow: #77777733;
+    --transition-flow: 250ms;
+    --transition-delay: 100ms;
+    --const_size: 25rem;
+    --clock_ctr: 1.25rem;
+    --clock_hand_w: 0.625rem;
+    --clock_hand_rad: 0.625rem;
+}
+
+html
+{
+    background-color: var(--bcg-base);
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    font-family: 'Poppins', sans-serif;
+    min-height: 100svh;
+    min-height: 100vh;
+    background-color: var(--bcg-base);
+}
+
+@supports(-webkit-tap-highlight-color: var(--bcg-trpnt))
+{
+    body
+    {
+        -webkit-tap-highlight-color: var(--bcg-trpnt);
+    }
+}
+
+
+
+.scope
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 4rem;
+}
+
+.clock-base
+{
+    width: var(--const_size);
+    height: var(--const_size);
+    background-color: var(--bcg-white);
+}
+
+.clock-bdr
+{
+    position: relative;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.125rem #000000;
+}
+
+.clock-bdr::after
+{
+    content: '';
+    position: absolute;
+    top: calc((50% - (var(--clock_ctr) / 2)));
+    left: calc((50% - (var(--clock_ctr) / 2)));
+    width: var(--clock_ctr);
+    height: var(--clock_ctr);
+    border-radius: 50%;
+    background-color: #000000;
+    z-index: 1;
+}
+
+.hour-hand-bdr
+{
+    position: absolute;
+    top: 20%;
+    left: calc((50% - (var(--clock_hand_w) / 2)));
+    width: var(--clock_hand_w);
+    height: 60%;
+    z-index: 12;
+}
+
+.hour-hand-box
+{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: var(--clock_hand_rad);
+    border-top-right-radius: var(--clock_hand_rad);
+    background-color: #00ffff;
+}
+
+.minute-hand-bdr
+{
+    position: absolute;
+    top: 10%;
+    left: calc((50% - (var(--clock_hand_w) / 2)));
+    width: var(--clock_hand_w);
+    height: 80%;
+    z-index: 6;
+    transform: rotate(30deg);
+}
+
+.minute-hand-box
+{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: var(--clock_hand_rad);
+    border-top-right-radius: var(--clock_hand_rad);
+    background-color: #000000;
+}
+
+.seconds-hand-bdr
+{
+    --clock_hand_sec: calc((var(--clock_hand_w) * 0.5));
+    position: absolute;
+    top: 2%;
+    left: calc((50% - (var(--clock_hand_sec) / 2)));
+    width: var(--clock_hand_sec);
+    height: 96%;
+    z-index: 3;
+}
+
+.seconds-hand-box
+{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: var(--clock_hand_rad);
+    border-top-right-radius: var(--clock_hand_rad);
+    background-color: #b91900;
+}
+
+
+
+
+
