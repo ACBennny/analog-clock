@@ -73,7 +73,6 @@ body
 {
     width: var(--const_size);
     height: var(--const_size);
-    background-color: var(--bcg-white);
 }
 
 .clock-bdr
@@ -82,7 +81,7 @@ body
     width: inherit;
     height: inherit;
     border-radius: 50%;
-    box-shadow: 0 0 0 0.125rem #000000;
+    box-shadow: 0 0 0 0.125rem var(--bcg-white);
 }
 
 .clock-bdr::after
@@ -94,8 +93,8 @@ body
     width: var(--clock_ctr);
     height: var(--clock_ctr);
     border-radius: 50%;
-    background-color: #000000;
-    z-index: 1;
+    background-color: var(--bcg-white);
+    z-index: 15;
 }
 
 .hour-hand-bdr
@@ -115,7 +114,7 @@ body
     height: 50%;
     border-top-left-radius: var(--clock_hand_rad);
     border-top-right-radius: var(--clock_hand_rad);
-    background-color: #00ffff;
+    background-color: var(--bcg-white);
 }
 
 .minute-hand-bdr
@@ -126,7 +125,6 @@ body
     width: var(--clock_hand_w);
     height: 80%;
     z-index: 6;
-    transform: rotate(30deg);
 }
 
 .minute-hand-box
@@ -136,7 +134,7 @@ body
     height: 50%;
     border-top-left-radius: var(--clock_hand_rad);
     border-top-right-radius: var(--clock_hand_rad);
-    background-color: #000000;
+    background-color: var(--bcg-white);
 }
 
 .seconds-hand-bdr
@@ -160,6 +158,30 @@ body
     background-color: #b91900;
 }
 
+
+
+/* -------- Clock Style ------- */
+[clock-style="default"]
+{
+    --base_w: 0.125rem;
+    --base_h: 0.125rem;
+    --r1_w_scale: 25%;
+    --r1_h_scale: 50%;
+}
+
+[clock-style="default"] .clock-stamp
+{
+    width: var(--base_w);
+    height: var(--base_h);
+    background-color: #000000;
+}
+
+[clock-style="default"] .clock-stamp[rank="1"],
+[clock-style="default"] .clock-stamp[rank="2"]
+{
+    width: calc((var(--base_w) + (var(--base_w) * var(--r1_w_scale))));
+    width: calc((var(--base_w) + (var(--base_w) * var(--r1_h_scale))));
+}
 
 
 
