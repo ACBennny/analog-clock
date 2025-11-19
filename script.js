@@ -63,10 +63,7 @@ function getCurrentTime()
 /************************************************************************
  * Updates the Hour's, minute's, and seconds' clock hands to match
  * the current time every second
- * 
- * Hour movement = (Math.abs(((12 - hour) / 12) * 12) * 30) + [(60 -(60 -minutes)) / 60] * 30
- * Minute movement => [6 * minutes]
- * Seconds movement => [6 * seconds]
+ *
  * 
  ***********************************************************************/
 function updateClockTime()
@@ -88,7 +85,10 @@ function updateClockTime()
         }
 
         // Get Rotation values
-        const hourRotation = (Math.abs(((12 - curr_time.hour) / 12) * 12) * 30) + (((60 - (60 - curr_time.minute)) / 60) * 30);
+        const currHrPos = (curr_time.hour > 12) 
+            ? (Math.abs(((12 - curr_time.hour) / 12) * 12) * 30)
+            : (curr_time.hour * 30);
+        const hourRotation = currHrPos + (((60 - (60 - curr_time.minute)) / 60) * 30);
         const minsRotation = (6 * curr_time.minute);
         const secsRotation = (6 * curr_time.seconds);
         
