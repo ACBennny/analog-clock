@@ -75,7 +75,7 @@ function updateClockTime()
         const minsHand = document.querySelector("#minute-hand");
         const secsHand = document.querySelector("#seconds-hand");
 
-        // Return if any of the ahnds are unavailble or time object is unavailable.
+        // Return if any of the hands are unavailable or time object is unavailable.
         if(
             (curr_time == null) || (hourHand == null) 
             || (minsHand == null) || (secsHand == null)
@@ -140,6 +140,5 @@ function buildClockFace()
 
 window.onload = () =>
 {
-    //   
     buildClockFace();
 }
