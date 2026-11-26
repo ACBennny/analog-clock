@@ -160,7 +160,21 @@ body
 
 
 
-/* -------- Clock Style ------- */
+
+/************************************************************
+ * Clock Face Styles
+ * 
+ * Clock-style: The overall styling of the clock. 
+ * Changing this changes the style of the entire clock face
+ * 
+ * Clock Stamp: The points across the clocks circumference that reference time
+ * rank 0 => All minute hands except the hour hands (1-12)
+ * rank 1 => All hour hands (1-12)
+ * rank 2 => All hour hands except cardinal points (1,2,4,5,7,8,10,11)
+ * rank 3 => The four cardinal points (hour hands) (3, 6, 9, 12)
+ * 
+ *************************************************************/
+ 
 [clock-style="default"]
 {
     --base_w: 0.125rem;

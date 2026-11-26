@@ -112,6 +112,7 @@ function updateClockTime()
  ***********************************************************************/
 function buildClockFace()
 {
+    // Default Clock Body
     document.body.insertAdjacentHTML(
         `afterbegin`,
         `
@@ -131,7 +132,11 @@ function buildClockFace()
                 </div>
             </div>
         `
-    )
+    );
+
+    // Generate and fix positions of the Clock Stamps
+
+    // Initialize time
     setInterval(updateClockTime, 1000);
 }
 
